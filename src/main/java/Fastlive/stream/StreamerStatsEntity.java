@@ -29,7 +29,6 @@ public class StreamerStatsEntity {
     @Column(name = "last_updated")
     private Instant lastUpdated;
 
-    // getters / setters
 
     public Long getId() {
         return id;

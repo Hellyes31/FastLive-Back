@@ -26,7 +26,6 @@ public class StreamSessionEntity {
     @Column(name = "ended_at")
     private Instant endedAt;
 
-    // getters / setters
 
     public Long getId() {
         return id;

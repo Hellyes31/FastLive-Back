@@ -28,8 +28,6 @@ public class StreamSettingsEntity {
     @Column
     private String tags;
 
-    // getters / setters
-
     public Long getId() {
         return id;
     }

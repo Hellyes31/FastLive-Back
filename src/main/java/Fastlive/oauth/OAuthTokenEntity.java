@@ -35,8 +35,6 @@ public class OAuthTokenEntity {
     @Column(name = "updated_at")
     private Instant updatedAt;
 
-    // getters / setters
-
 
     public Long getId() {
         return id;

@@ -32,7 +32,6 @@ public class ProfileSettingsEntity {
     @Column(name = "social_links", nullable = false)
     private Map<String, Object> socialLinks;
 
-    // getters / setters
 
     public Long getId() {
         return id;

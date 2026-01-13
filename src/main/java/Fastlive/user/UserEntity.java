@@ -50,7 +50,6 @@ public class UserEntity {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<OAuthTokenEntity> oauthTokens;
 
-    // getters / setters
 
 
     public Long getId() {

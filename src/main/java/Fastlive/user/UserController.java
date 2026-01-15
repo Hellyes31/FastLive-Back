@@ -1,9 +1,6 @@
 package Fastlive.user;
 
-import Fastlive.user.dto.LoginRequest;
-import Fastlive.user.dto.LoginResponse;
-import Fastlive.user.dto.RegisterRequest;
-import Fastlive.user.dto.RegisterResponse;
+import Fastlive.user.dto.*;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,5 +22,15 @@ public class UserController {
     public RegisterResponse register(@RequestBody RegisterRequest request){
         return userService.register(request);
     }
+
+    @PutMapping("/update/{id}")
+    public void updateUser(
+            @PathVariable Long id,
+            @RequestBody UpdateUserRequest request
+            ) {
+        userService.updateUser(id,request);
+    }
 }
+
+
 

@@ -1,9 +1,6 @@
 package Fastlive.user;
 
-import Fastlive.user.dto.LoginRequest;
-import Fastlive.user.dto.LoginResponse;
-import Fastlive.user.dto.RegisterRequest;
-import Fastlive.user.dto.RegisterResponse;
+import Fastlive.user.dto.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -59,6 +56,28 @@ public class UserService {
                 savedUser.getUsername(),
                 savedUser.getEmail()
         );
+    }
+
+    public void updateUser(Long userId, UpdateUserRequest request) {
+
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("Utilisateur introuvable"));
+
+        if (request.username() != null && !request.username().isBlank()) {
+            user.setUsername(request.username());
+        }
+
+        if (request.email() != null && !request.email().isBlank()) {
+            user.setEmail(request.email());
+        }
+
+        if (request.password() != null && !request.password().isBlank()) {
+            user.setPasswordHash(passwordEncoder.encode(request.password()));
+        }
+
+        user.setUpdatedAt(Instant.now());
+
+        userRepository.save(user);
     }
 }
 
